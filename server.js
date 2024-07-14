@@ -169,7 +169,7 @@ var port = process.env.PORT || 5000;
 var webServer = http.createServer(httpApp).listen(port);
 
 // start Socket.io so it attaches itself to Express server
-var io = sio.listen(webServer, {"log level":1});
+var io = sio(webServer, {"log level":1});
  io = sio(webServer, {
   cors: {
     origin: "*", // Allow all origins
