@@ -169,8 +169,7 @@ var port = process.env.PORT || 5000;
 var webServer = http.createServer(httpApp).listen(port);
 
 // start Socket.io so it attaches itself to Express server
-var io = sio.listen(webServer);
-
+var io = httpApp.listen(webServer, {"log level":1});
 
 // start EasyRTC server
 easyrtc.listen(httpApp, io, {logLevel:"debug", logDateEnable:true});
