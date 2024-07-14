@@ -173,7 +173,12 @@ var io = sio.listen(webServer, {"log level":1,  cors: {
   origin: "*", // Allow all origins
   methods: ["GET", "POST"]
 }},);
-
+ io = sio(webServer, {
+  cors: {
+    origin: "*", // Allow all origins
+    methods: ["GET", "POST"]
+  }
+});
 // start EasyRTC server
 easyrtc.listen(httpApp, io, {logLevel:"debug", logDateEnable:true});
 
